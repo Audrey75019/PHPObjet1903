@@ -1,35 +1,54 @@
 <?php
-class Product{
 
-const DEFAULT_NB_VIEWS = 0;
-private $name;
-private $description;
-private $price;
+class Product {
+    const DEFAULT_NB_VIEWS = 0;
 
-public function displayPrice() {
-	return 'Le prix : ' . $this->price . '€';
+    private $name;
+	private $description;
+	private $price;
+
+	public function displayPrice() {
+        return 'Le prix : ' . $this->price . '€';
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $nouveauNom): void
+    {
+        $this->name = $nouveauNom;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): void
+    {
+        $this->description = $description;
+    }
+
+    public function getPrice(): float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(float $price): void
+    {
+        if ($price < 0) {
+           die('Le prix doit être supérieur à 0');
+        }
+        $this->price = $price;
+    }
 }
-public function displayName(){
-	return 'Le nom : ' . $this->name;
-}
-public function getname(){
-	return $this->name;
-}
-public function setName(string $nouveauNom)
-{
-	$this->name = $nouveauNom;
-}
-public function getDescription(string $nouvelleDescription){
-	return $this->description;
-}
-public function setDescription(string $nouvelleDescription){
-	$this->description = $nouvelleDescription;
-}
-public function setPrice(float $price):void
-{
-	if($price < 0) {
-		die("Le prix doit etre superieur a 0");
-	}
-	$this->price = $price;
-}
-}
+
+
+
+
+
+
+
+
